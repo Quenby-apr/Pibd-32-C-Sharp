@@ -85,5 +85,11 @@ namespace WinFormsTest
             var myobj = OutputComponent.GetSelectedItem<Pet>();
             Console.WriteLine(myobj.ToString());
         }
+
+        private void buttonHelp_Click(object sender, EventArgs e)
+        {
+            inputComponent.SetToolTip(textBoxHelp.Text);
+            textBoxHelp.Clear();
+        }
     }
 }

@@ -12,7 +12,6 @@ namespace Library_VisualComponents
 {
     public partial class SelectionComponent : UserControl
     {
-        public ComboBox.ObjectCollection Items { get { return this.comboBox.Items; } }
         public SelectionComponent()
         {
             InitializeComponent();

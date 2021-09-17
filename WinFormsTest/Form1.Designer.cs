@@ -35,6 +35,8 @@
             this.OutputComponent = new Library_VisualComponents.OutputComponent();
             this.inputComponent = new Library_VisualComponents.InputComponent();
             this.selectionComponent = new Library_VisualComponents.SelectionComponent();
+            this.textBoxHelp = new System.Windows.Forms.TextBox();
+            this.buttonHelp = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonCheck
@@ -102,11 +104,30 @@
             this.selectionComponent.Size = new System.Drawing.Size(223, 22);
             this.selectionComponent.TabIndex = 0;
             // 
+            // textBoxHelp
+            // 
+            this.textBoxHelp.Location = new System.Drawing.Point(484, 81);
+            this.textBoxHelp.Name = "textBoxHelp";
+            this.textBoxHelp.Size = new System.Drawing.Size(177, 20);
+            this.textBoxHelp.TabIndex = 7;
+            // 
+            // buttonHelp
+            // 
+            this.buttonHelp.Location = new System.Drawing.Point(667, 77);
+            this.buttonHelp.Name = "buttonHelp";
+            this.buttonHelp.Size = new System.Drawing.Size(121, 23);
+            this.buttonHelp.TabIndex = 8;
+            this.buttonHelp.Text = "Задать подсказку";
+            this.buttonHelp.UseVisualStyleBackColor = true;
+            this.buttonHelp.Click += new System.EventHandler(this.buttonHelp_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonHelp);
+            this.Controls.Add(this.textBoxHelp);
             this.Controls.Add(this.buttonList);
             this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.buttonCheck2);
@@ -117,6 +138,7 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -129,6 +151,8 @@
         private System.Windows.Forms.Button buttonCheck2;
         private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.Button buttonList;
+        private System.Windows.Forms.TextBox textBoxHelp;
+        private System.Windows.Forms.Button buttonHelp;
     }
 }
 
