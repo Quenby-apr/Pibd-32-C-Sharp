@@ -91,5 +91,10 @@ namespace WinFormsTest
             inputComponent.SetToolTip(textBoxHelp.Text);
             textBoxHelp.Clear();
         }
+
+        private void selectionComponent_ComboBoxSelectedElementChange(object sender, EventArgs e)
+        {
+            MessageBox.Show("Событие работает", "Успешно", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 }

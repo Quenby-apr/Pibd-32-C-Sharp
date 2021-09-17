@@ -41,7 +41,6 @@
             this.textBox.Size = new System.Drawing.Size(183, 20);
             this.textBox.TabIndex = 0;
             this.toolTip.SetToolTip(this.textBox, "Дефолт");
-            this.textBox.TextChanged += new System.EventHandler(this.textBox_TextChanged);
             // 
             // toolTip
             // 

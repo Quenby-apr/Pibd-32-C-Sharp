@@ -55,7 +55,7 @@ namespace Library_VisualComponents
         {
             return inputLine.Replace(separatingCharacters[0], null).Replace(separatingCharacters[1], null);
         }
-        public ArrayList getParams(string layoutLine)
+        /*public ArrayList getParams(string layoutLine)
         {
             string[] line = layoutLine.Split(',');
             ArrayList result = new ArrayList();
@@ -68,7 +68,7 @@ namespace Library_VisualComponents
                 result.Add(param);
             }
             return result;
-        }
+        }*/
         public void AddItem<T>(T obj)
         {
             if (obj != null)

@@ -32,11 +32,11 @@
             this.buttonCheck2 = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.buttonList = new System.Windows.Forms.Button();
+            this.textBoxHelp = new System.Windows.Forms.TextBox();
+            this.buttonHelp = new System.Windows.Forms.Button();
             this.OutputComponent = new Library_VisualComponents.OutputComponent();
             this.inputComponent = new Library_VisualComponents.InputComponent();
             this.selectionComponent = new Library_VisualComponents.SelectionComponent();
-            this.textBoxHelp = new System.Windows.Forms.TextBox();
-            this.buttonHelp = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonCheck
@@ -79,6 +79,23 @@
             this.buttonList.UseVisualStyleBackColor = true;
             this.buttonList.Click += new System.EventHandler(this.buttonList_Click);
             // 
+            // textBoxHelp
+            // 
+            this.textBoxHelp.Location = new System.Drawing.Point(484, 81);
+            this.textBoxHelp.Name = "textBoxHelp";
+            this.textBoxHelp.Size = new System.Drawing.Size(177, 20);
+            this.textBoxHelp.TabIndex = 7;
+            // 
+            // buttonHelp
+            // 
+            this.buttonHelp.Location = new System.Drawing.Point(667, 77);
+            this.buttonHelp.Name = "buttonHelp";
+            this.buttonHelp.Size = new System.Drawing.Size(121, 23);
+            this.buttonHelp.TabIndex = 8;
+            this.buttonHelp.Text = "Задать подсказку";
+            this.buttonHelp.UseVisualStyleBackColor = true;
+            this.buttonHelp.Click += new System.EventHandler(this.buttonHelp_Click);
+            // 
             // OutputComponent
             // 
             this.OutputComponent.Location = new System.Drawing.Point(278, 179);
@@ -103,23 +120,7 @@
             this.selectionComponent.SelectedValue = "";
             this.selectionComponent.Size = new System.Drawing.Size(223, 22);
             this.selectionComponent.TabIndex = 0;
-            // 
-            // textBoxHelp
-            // 
-            this.textBoxHelp.Location = new System.Drawing.Point(484, 81);
-            this.textBoxHelp.Name = "textBoxHelp";
-            this.textBoxHelp.Size = new System.Drawing.Size(177, 20);
-            this.textBoxHelp.TabIndex = 7;
-            // 
-            // buttonHelp
-            // 
-            this.buttonHelp.Location = new System.Drawing.Point(667, 77);
-            this.buttonHelp.Name = "buttonHelp";
-            this.buttonHelp.Size = new System.Drawing.Size(121, 23);
-            this.buttonHelp.TabIndex = 8;
-            this.buttonHelp.Text = "Задать подсказку";
-            this.buttonHelp.UseVisualStyleBackColor = true;
-            this.buttonHelp.Click += new System.EventHandler(this.buttonHelp_Click);
+            this.selectionComponent.ComboBoxSelectedElementChange += new System.EventHandler(this.selectionComponent_ComboBoxSelectedElementChange);
             // 
             // Form1
             // 

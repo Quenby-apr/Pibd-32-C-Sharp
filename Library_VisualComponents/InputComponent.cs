@@ -19,19 +19,18 @@ namespace Library_VisualComponents
         }
         public string Pattern { get; set; }
 
-        private string value = string.Empty;
         public string Value
         {
             get
             {
                 string outputText;
-                if (!string.IsNullOrEmpty(value))
+                if (!string.IsNullOrEmpty(textBox.Text))
                 {
-                    if (!Regex.IsMatch(value, Pattern))
+                    if (!Regex.IsMatch(textBox.Text, Pattern))
                     {
                         throw new ArgumentException();
                     }
-                    outputText = value;
+                    outputText = textBox.Text;
                 }
                 else
                 {
@@ -41,17 +40,12 @@ namespace Library_VisualComponents
             }
             set
             {
-                this.value = value;
+                textBox.Text = value;
             }
         }
         public void SetToolTip(string value)
         {
             toolTip.SetToolTip(textBox, value);
-        }
-
-        private void textBox_TextChanged(object sender, EventArgs e)
-        {
-            Value = ((TextBox)sender).Text;
         }
     }
 }
