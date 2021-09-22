@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library_VisualComponents", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinFormsTest", "WinFormsTest\WinFormsTest.csproj", "{8D812799-B0CB-4D7E-AFF7-95A5ACE9296B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library_NotVisualComponent", "Library_NotVisualComponent\Library_NotVisualComponent.csproj", "{A8F391BB-6B18-4062-A2A5-25005DEFAD82}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{8D812799-B0CB-4D7E-AFF7-95A5ACE9296B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8D812799-B0CB-4D7E-AFF7-95A5ACE9296B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8D812799-B0CB-4D7E-AFF7-95A5ACE9296B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8F391BB-6B18-4062-A2A5-25005DEFAD82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8F391BB-6B18-4062-A2A5-25005DEFAD82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8F391BB-6B18-4062-A2A5-25005DEFAD82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8F391BB-6B18-4062-A2A5-25005DEFAD82}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

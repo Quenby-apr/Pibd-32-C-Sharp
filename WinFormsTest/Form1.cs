@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -95,6 +97,56 @@ namespace WinFormsTest
         private void selectionComponent_ComboBoxSelectedElementChange(object sender, EventArgs e)
         {
             MessageBox.Show("Событие работает", "Успешно", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+        public static T Deserialize<T>(string pathOrFileName)
+        {
+            T items;
+
+            using (Stream stream = File.Open(pathOrFileName, FileMode.Open))
+            {
+                BinaryFormatter bin = new BinaryFormatter();
+
+                items = (T)bin.Deserialize(stream);
+            }
+
+            return items;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var fbd = new FolderBrowserDialog();
+            if (fbd.ShowDialog() == DialogResult.OK)
+            {
+                binaryBackUp1.SaveData(fbd.SelectedPath, "myBackUp", pets.ToList());
+                MessageBox.Show("Бекап создан", "Сообщение",
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                
+                /*string b = fbd.SelectedPath + "/" + "myBackUp" + ".bin";
+                var myl = Deserialize<List<Pet>>(b);
+                foreach (var el in myl)
+                {
+                    Console.WriteLine(el);
+                }*/
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            var fbd = new FolderBrowserDialog();
+            if (fbd.ShowDialog() == DialogResult.OK)
+            {
+                excelReport1.CreateDoc(fbd.SelectedPath + "/ExcelReport.xlsx", pets.ToList(), new int[] { 1, pets[0].GetType().GetProperties().Count(), 15, 20 }.ToList());
+                MessageBox.Show("Отчёт создан", "Сообщение",
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                /*string b = fbd.SelectedPath + "/" + "myBackUp" + ".bin";
+                var myl = Deserialize<List<Pet>>(b);
+                foreach (var el in myl)
+                {
+                    Console.WriteLine(el);
+                }*/
+            }
+            
         }
     }
 }

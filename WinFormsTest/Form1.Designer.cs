@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.buttonCheck = new System.Windows.Forms.Button();
             this.buttonCheck2 = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
@@ -37,6 +38,10 @@
             this.OutputComponent = new Library_VisualComponents.OutputComponent();
             this.inputComponent = new Library_VisualComponents.InputComponent();
             this.selectionComponent = new Library_VisualComponents.SelectionComponent();
+            this.button1 = new System.Windows.Forms.Button();
+            this.binaryBackUp1 = new Library_NotVisualComponent.BinaryBackUp(this.components);
+            this.excelReport1 = new Library_NotVisualComponent.ExcelReport(this.components);
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonCheck
@@ -122,11 +127,33 @@
             this.selectionComponent.TabIndex = 0;
             this.selectionComponent.ComboBoxSelectedElementChange += new System.EventHandler(this.selectionComponent_ComboBoxSelectedElementChange);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(27, 491);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(170, 82);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "Кнопка бекапа";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(294, 491);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(182, 82);
+            this.button2.TabIndex = 10;
+            this.button2.Text = "Эксель отчёт";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(902, 632);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.buttonHelp);
             this.Controls.Add(this.textBoxHelp);
             this.Controls.Add(this.buttonList);
@@ -154,6 +181,10 @@
         private System.Windows.Forms.Button buttonList;
         private System.Windows.Forms.TextBox textBoxHelp;
         private System.Windows.Forms.Button buttonHelp;
+        private Library_NotVisualComponent.BinaryBackUp binaryBackUp1;
+        private System.Windows.Forms.Button button1;
+        private Library_NotVisualComponent.ExcelReport excelReport1;
+        private System.Windows.Forms.Button button2;
     }
 }
 

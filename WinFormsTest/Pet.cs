@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace WinFormsTest
 {
+    [Serializable]
     public class Pet
     {
         public string Name { get; set; }

@@ -82,8 +82,12 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Library_NotVisualComponent\Library_NotVisualComponent.csproj">
+      <Project>{a8f391bb-6b18-4062-a2a5-25005defad82}</Project>
+      <Name>Library_NotVisualComponent</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Library_VisualComponents\Library_VisualComponents.csproj">
-      <Project>{81D116CB-288C-4B2C-A311-0F12BD69BDA2}</Project>
+      <Project>{81d116cb-288c-4b2c-a311-0f12bd69bda2}</Project>
       <Name>Library_VisualComponents</Name>
     </ProjectReference>
   </ItemGroup>

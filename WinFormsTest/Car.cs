@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace WinFormsTest
 {
+    [Serializable]
     class Car
     {
         public int Age { get; set; }
