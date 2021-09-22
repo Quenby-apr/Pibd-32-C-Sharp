@@ -24,6 +24,58 @@ namespace WinFormsTest
                 Name = "dog",
                 Age = 6
             },
+             new Pet() {
+                Name = "cat",
+                Age = 5
+            },
+              new Pet() {
+                Name = "cat",
+                Age = 5
+            },
+              new Pet() {
+                Name = "cat",
+                Age = 5
+            },
+               new Pet() {
+                Name = "cat",
+                Age = 5
+            },
+               new Pet() {
+                Name = "cat",
+                Age = 5
+            },
+               new Pet() {
+                Name = "cat",
+                Age = 5
+            },
+               new Pet() {
+                Name = "cat",
+                Age = 5
+            },
+               new Pet() {
+                Name = "cat",
+                Age = 5
+            },
+               new Pet() {
+                Name = "cat",
+                Age = 5
+            },
+                new Pet() {
+                Name = "cat",
+                Age = 5
+            },
+                 new Pet() {
+                Name = "cat",
+                Age = 5
+            },
+                  new Pet() {
+                Name = "cat",
+                Age = 5
+            },
+                   new Pet() {
+                Name = "cat",
+                Age = 5
+            },
             new Pet() {
                 Name = "bunny",
                 Age = 2
@@ -117,16 +169,16 @@ namespace WinFormsTest
             var fbd = new FolderBrowserDialog();
             if (fbd.ShowDialog() == DialogResult.OK)
             {
-                binaryBackUp1.SaveData(fbd.SelectedPath, "myBackUp", pets.ToList());
+                /*binaryBackUp1.SaveData(fbd.SelectedPath, "myBackUp", pets.ToList());
                 MessageBox.Show("Бекап создан", "Сообщение",
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBoxButtons.OK, MessageBoxIcon.Information);*/
                 
-                /*string b = fbd.SelectedPath + "/" + "myBackUp" + ".bin";
+                string b = fbd.SelectedPath + "/" + "myBackUp" + ".bin";
                 var myl = Deserialize<List<Pet>>(b);
                 foreach (var el in myl)
                 {
                     Console.WriteLine(el);
-                }*/
+                }
             }
         }
 
@@ -138,15 +190,19 @@ namespace WinFormsTest
                 excelReport1.CreateDoc(fbd.SelectedPath + "/ExcelReport.xlsx", pets.ToList(), new int[] { 1, pets[0].GetType().GetProperties().Count(), 15, 20 }.ToList());
                 MessageBox.Show("Отчёт создан", "Сообщение",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                /*string b = fbd.SelectedPath + "/" + "myBackUp" + ".bin";
-                var myl = Deserialize<List<Pet>>(b);
-                foreach (var el in myl)
-                {
-                    Console.WriteLine(el);
-                }*/
             }
             
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            var fbd = new FolderBrowserDialog();
+            if (fbd.ShowDialog() == DialogResult.OK)
+            {
+                pdfDiagramm1.CreateDiagram(fbd.SelectedPath + "/Diagram.pdf",pets.ToList(),"Name");
+                MessageBox.Show("Отчёт создан", "Сообщение",
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }

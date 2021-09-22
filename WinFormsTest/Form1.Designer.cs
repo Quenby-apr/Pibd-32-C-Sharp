@@ -39,9 +39,11 @@
             this.inputComponent = new Library_VisualComponents.InputComponent();
             this.selectionComponent = new Library_VisualComponents.SelectionComponent();
             this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.binaryBackUp1 = new Library_NotVisualComponent.BinaryBackUp(this.components);
             this.excelReport1 = new Library_NotVisualComponent.ExcelReport(this.components);
-            this.button2 = new System.Windows.Forms.Button();
+            this.pdfDiagramm1 = new Library_NotVisualComponent.PDFDiagramm(this.components);
+            this.button3 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonCheck
@@ -139,7 +141,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(294, 491);
+            this.button2.Location = new System.Drawing.Point(348, 491);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(182, 82);
             this.button2.TabIndex = 10;
@@ -147,11 +149,22 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(654, 491);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(185, 82);
+            this.button3.TabIndex = 11;
+            this.button3.Text = "ПДФ диаграмма";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(902, 632);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.buttonHelp);
@@ -185,6 +198,8 @@
         private System.Windows.Forms.Button button1;
         private Library_NotVisualComponent.ExcelReport excelReport1;
         private System.Windows.Forms.Button button2;
+        private Library_NotVisualComponent.PDFDiagramm pdfDiagramm1;
+        private System.Windows.Forms.Button button3;
     }
 }
 

@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using DocumentFormat.OpenXml;
 using DocumentFormat.OpenXml.Office2010.Excel;
 using DocumentFormat.OpenXml.Office2013.Excel;
@@ -27,110 +25,121 @@ namespace Library_NotVisualComponent
 
             InitializeComponent();
         }
-        
-        public void CreateDoc<T>(string Path, List<T> Data, List<int> LineNumbersToCombine) where T : class, new()
+
+        public void CreateDoc<T>(string Path, List<T> Data, List<int> LineNumbersToCombine) 
         {
-            using (SpreadsheetDocument spreadsheetDocument =
-           SpreadsheetDocument.Create(Path, SpreadsheetDocumentType.Workbook))
+            if (!string.IsNullOrEmpty(Path))
             {
-                // Создаем книгу (в ней хранятся листы)
-                WorkbookPart workbookpart = spreadsheetDocument.AddWorkbookPart();
-                workbookpart.Workbook = new Workbook();
-                CreateStyles(workbookpart);
 
-                // Получаем/создаем хранилище текстов для книги
-                SharedStringTablePart shareStringPart =
-               spreadsheetDocument.WorkbookPart.GetPartsOfType<SharedStringTablePart>().Count() > 0
-                ?
-               spreadsheetDocument.WorkbookPart.GetPartsOfType<SharedStringTablePart>().First()
-                :
-               spreadsheetDocument.WorkbookPart.AddNewPart<SharedStringTablePart>();
+                using (SpreadsheetDocument spreadsheetDocument =
+               SpreadsheetDocument.Create(Path, SpreadsheetDocumentType.Workbook))
+                {
+                    // Создаем книгу (в ней хранятся листы)
+                    WorkbookPart workbookpart = spreadsheetDocument.AddWorkbookPart();
+                    workbookpart.Workbook = new Workbook();
+                    CreateStyles(workbookpart);
 
-                // Создаем SharedStringTable, если его нет
-                if (shareStringPart.SharedStringTable == null)
-                {
-                    shareStringPart.SharedStringTable = new SharedStringTable();
-                }
-                // Создаем лист в книгу
-                WorksheetPart worksheetPart = workbookpart.AddNewPart<WorksheetPart>();
-                worksheetPart.Worksheet = new Worksheet(new SheetData());
+                    // Получаем/создаем хранилище текстов для книги
+                    SharedStringTablePart shareStringPart =
+                   spreadsheetDocument.WorkbookPart.GetPartsOfType<SharedStringTablePart>().Count() > 0
+                    ?
+                   spreadsheetDocument.WorkbookPart.GetPartsOfType<SharedStringTablePart>().First()
+                    :
+                   spreadsheetDocument.WorkbookPart.AddNewPart<SharedStringTablePart>();
 
-                // Добавляем лист в книгу
-                Sheets sheets = spreadsheetDocument.WorkbookPart.Workbook.AppendChild(new Sheets());
-                Sheet sheet = new Sheet()
-                {
-                    Id = spreadsheetDocument.WorkbookPart.GetIdOfPart(worksheetPart),
-                    SheetId = 1,
-                    Name = "Лист"
-                };
-                sheets.Append(sheet);
-                SheetData sheetData = worksheetPart.Worksheet.GetFirstChild<SheetData>();
-                if (LineNumbersToCombine.Count%2 != 0)
-                {
-                    throw new MyException("Вводить пары значений начала и конца объединения строк");
-                }
-                for (int index = 0; index < LineNumbersToCombine.Count; index += 2) //объединение строк в шапке
-                {
-                    MergeCells(new ExcelMergeParameters
+                    // Создаем SharedStringTable, если его нет
+                    if (shareStringPart.SharedStringTable == null)
                     {
-                        Worksheet = worksheetPart.Worksheet,
-                        CellFromName = "A" + LineNumbersToCombine[index],
-                        CellToName = "A" + LineNumbersToCombine[index + 1]
-                    });
-                }
-                
-                uint buf = 1;
-                int columnIndex = 3;
-                foreach (var elem in Data)// ЗАПОЛНЕНИЕ ФАЙЛА
-                {
-                    var properties = elem.GetType().GetProperties();
-                    var countProperties = properties.Length;
-                    for (uint i = 0; i < countProperties; i++)//название класса
-                    {
-                        PropertyInfo property = properties[i];
-                        InsertCellInWorksheet(new ExcelCellParameters
-                        {
-                            Worksheet = worksheetPart.Worksheet,
-                            ShareStringPart = shareStringPart,
-                            ColumnName = "A",
-                            RowIndex = i + buf,
-                            Text = elem.GetType().Name,
-                            StyleIndex = 2U,
-                        });
+                        shareStringPart.SharedStringTable = new SharedStringTable();
                     }
-                    for (uint i = 0; i < countProperties; i++)//названия свойств
-                    {
+                    // Создаем лист в книгу
+                    WorksheetPart worksheetPart = workbookpart.AddNewPart<WorksheetPart>();
+                    worksheetPart.Worksheet = new Worksheet(new SheetData());
 
-                        PropertyInfo property = properties[i];
-                        InsertCellInWorksheet(new ExcelCellParameters
+                    // Добавляем лист в книгу
+                    Sheets sheets = spreadsheetDocument.WorkbookPart.Workbook.AppendChild(new Sheets());
+                    Sheet sheet = new Sheet()
+                    {
+                        Id = spreadsheetDocument.WorkbookPart.GetIdOfPart(worksheetPart),
+                        SheetId = 1,
+                        Name = "Лист"
+                    };
+                    sheets.Append(sheet);
+                    SheetData sheetData = worksheetPart.Worksheet.GetFirstChild<SheetData>();
+                    if (LineNumbersToCombine.Count % 2 == 0)
+                    {
+                        for (int index = 0; index < LineNumbersToCombine.Count; index += 2) //объединение строк в шапке
                         {
-                            Worksheet = worksheetPart.Worksheet,
-                            ShareStringPart = shareStringPart,
-                            ColumnName = "B",
-                            RowIndex = i + buf,
-                            Text = property.Name.ToString(),
-                            StyleIndex = 2U,
-                            
-                        }) ;
+                            MergeCells(new ExcelMergeParameters
+                            {
+                                Worksheet = worksheetPart.Worksheet,
+                                CellFromName = "A" + LineNumbersToCombine[index],
+                                CellToName = "A" + LineNumbersToCombine[index + 1]
+                            });
+                        }
+                    }
+                    else
+                    {
+                        throw new MyException("Вводить пары значений начала и конца объединения строк");
                     }
 
-                    for (uint i = 0; i < countProperties; i++)//значения
+                    uint buf = 1;
+                    int columnIndex = 3;
+                    foreach (var elem in Data)// ЗАПОЛНЕНИЕ ФАЙЛА
                     {
-
-                        PropertyInfo property = properties[i];
-                        InsertCellInWorksheet(new ExcelCellParameters
+                        var properties = elem.GetType().GetProperties();
+                        var countProperties = properties.Length;
+                        for (uint i = 0; i < countProperties; i++)//название класса
                         {
-                            Worksheet = worksheetPart.Worksheet,
-                            ShareStringPart = shareStringPart,
-                            ColumnName = NumberToLetters(checked((int)columnIndex)),
-                            RowIndex = i+buf,
-                            Text = property.GetValue(elem).ToString(),
-                            StyleIndex = 0U
-                        });  
+                            PropertyInfo property = properties[i];
+                            InsertCellInWorksheet(new ExcelCellParameters
+                            {
+                                Worksheet = worksheetPart.Worksheet,
+                                ShareStringPart = shareStringPart,
+                                ColumnName = "A",
+                                RowIndex = i + buf,
+                                Text = elem.GetType().Name,
+                                StyleIndex = 2U,
+                            });
+                        }
+                        for (uint i = 0; i < countProperties; i++)//названия свойств
+                        {
+
+                            PropertyInfo property = properties[i];
+                            InsertCellInWorksheet(new ExcelCellParameters
+                            {
+                                Worksheet = worksheetPart.Worksheet,
+                                ShareStringPart = shareStringPart,
+                                ColumnName = "B",
+                                RowIndex = i + buf,
+                                Text = property.Name.ToString(),
+                                StyleIndex = 2U,
+
+                            });
+                        }
+
+                        for (uint i = 0; i < countProperties; i++)//значения
+                        {
+
+                            PropertyInfo property = properties[i];
+                            InsertCellInWorksheet(new ExcelCellParameters
+                            {
+                                Worksheet = worksheetPart.Worksheet,
+                                ShareStringPart = shareStringPart,
+                                ColumnName = NumberToLetters(checked((int)columnIndex)),
+                                RowIndex = i + buf,
+                                Text = property.GetValue(elem).ToString(),
+                                StyleIndex = 0U
+                            });
+                        }
+                        columnIndex++;
                     }
-                    columnIndex++;
+                    workbookpart.Workbook.Save();
                 }
-                workbookpart.Workbook.Save();
+            }
+            else
+            {
+                throw new MyException("Строка пути до файла пустая");
             }
         }
         static string NumberToLetters(int number)

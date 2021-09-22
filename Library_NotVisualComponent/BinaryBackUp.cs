@@ -25,7 +25,7 @@ namespace Library_NotVisualComponent
 
             InitializeComponent();
         }
-        public void SaveData<T>(string directorypath, string filename, List<T> data) where T : class, new()
+        public void SaveData<T>(string directorypath, string filename, List<T> data) 
         {
             string addFilename = "/" + filename;
             if (!string.IsNullOrEmpty(directorypath))
