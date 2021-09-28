@@ -35,15 +35,15 @@
             this.buttonList = new System.Windows.Forms.Button();
             this.textBoxHelp = new System.Windows.Forms.TextBox();
             this.buttonHelp = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.OutputComponent = new Library_VisualComponents.OutputComponent();
             this.inputComponent = new Library_VisualComponents.InputComponent();
             this.selectionComponent = new Library_VisualComponents.SelectionComponent();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.binaryBackUp1 = new Library_NotVisualComponent.BinaryBackUp(this.components);
-            this.excelReport1 = new Library_NotVisualComponent.ExcelReport(this.components);
-            this.pdfDiagramm1 = new Library_NotVisualComponent.PDFDiagramm(this.components);
-            this.button3 = new System.Windows.Forms.Button();
+            this.documentWithContext1 = new Library_NotVisualComponents.DocumentWithContext(this.components);
+            this.documentWithCustomTable2 = new Library_NotVisualComponents.DocumentWithCustomTable(this.components);
+            this.documentWithDiagram1 = new Library_NotVisualComponents.DocumentWithDiagram(this.components);
             this.SuspendLayout();
             // 
             // buttonCheck
@@ -103,32 +103,6 @@
             this.buttonHelp.UseVisualStyleBackColor = true;
             this.buttonHelp.Click += new System.EventHandler(this.buttonHelp_Click);
             // 
-            // OutputComponent
-            // 
-            this.OutputComponent.Location = new System.Drawing.Point(278, 179);
-            this.OutputComponent.Name = "OutputComponent";
-            this.OutputComponent.SelectedIndex = -1;
-            this.OutputComponent.Size = new System.Drawing.Size(267, 107);
-            this.OutputComponent.TabIndex = 2;
-            // 
-            // inputComponent
-            // 
-            this.inputComponent.Location = new System.Drawing.Point(484, 23);
-            this.inputComponent.Name = "inputComponent";
-            this.inputComponent.Pattern = null;
-            this.inputComponent.Size = new System.Drawing.Size(183, 22);
-            this.inputComponent.TabIndex = 1;
-            this.inputComponent.Value = null;
-            // 
-            // selectionComponent
-            // 
-            this.selectionComponent.Location = new System.Drawing.Point(27, 23);
-            this.selectionComponent.Name = "selectionComponent";
-            this.selectionComponent.SelectedValue = "";
-            this.selectionComponent.Size = new System.Drawing.Size(223, 22);
-            this.selectionComponent.TabIndex = 0;
-            this.selectionComponent.ComboBoxSelectedElementChange += new System.EventHandler(this.selectionComponent_ComboBoxSelectedElementChange);
-            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(27, 491);
@@ -158,6 +132,32 @@
             this.button3.Text = "ПДФ диаграмма";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // OutputComponent
+            // 
+            this.OutputComponent.Location = new System.Drawing.Point(278, 179);
+            this.OutputComponent.Name = "OutputComponent";
+            this.OutputComponent.SelectedIndex = -1;
+            this.OutputComponent.Size = new System.Drawing.Size(267, 107);
+            this.OutputComponent.TabIndex = 2;
+            // 
+            // inputComponent
+            // 
+            this.inputComponent.Location = new System.Drawing.Point(484, 23);
+            this.inputComponent.Name = "inputComponent";
+            this.inputComponent.Pattern = null;
+            this.inputComponent.Size = new System.Drawing.Size(183, 22);
+            this.inputComponent.TabIndex = 1;
+            this.inputComponent.Value = null;
+            // 
+            // selectionComponent
+            // 
+            this.selectionComponent.Location = new System.Drawing.Point(27, 23);
+            this.selectionComponent.Name = "selectionComponent";
+            this.selectionComponent.SelectedValue = "";
+            this.selectionComponent.Size = new System.Drawing.Size(223, 22);
+            this.selectionComponent.TabIndex = 0;
+            this.selectionComponent.ComboBoxSelectedElementChange += new System.EventHandler(this.selectionComponent_ComboBoxSelectedElementChange);
             // 
             // Form1
             // 
@@ -194,12 +194,12 @@
         private System.Windows.Forms.Button buttonList;
         private System.Windows.Forms.TextBox textBoxHelp;
         private System.Windows.Forms.Button buttonHelp;
-        private Library_NotVisualComponent.BinaryBackUp binaryBackUp1;
         private System.Windows.Forms.Button button1;
-        private Library_NotVisualComponent.ExcelReport excelReport1;
         private System.Windows.Forms.Button button2;
-        private Library_NotVisualComponent.PDFDiagramm pdfDiagramm1;
         private System.Windows.Forms.Button button3;
+        private Library_NotVisualComponents.DocumentWithContext documentWithContext1;
+        private Library_NotVisualComponents.DocumentWithCustomTable documentWithCustomTable2;
+        private Library_NotVisualComponents.DocumentWithDiagram documentWithDiagram1;
     }
 }
 

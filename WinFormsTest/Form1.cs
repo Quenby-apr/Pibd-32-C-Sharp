@@ -9,6 +9,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Library_NotVisualComponents.HelperModels;
 
 namespace WinFormsTest
 {
@@ -86,6 +87,8 @@ namespace WinFormsTest
             Age = 20,
             Color = "blue"
         };
+        List<List<string>> myList = new List<List<string>>();
+        List<DiagramSeries> thatlist = new List<DiagramSeries>();
         public Form1()
         {
             InitializeComponent();
@@ -103,6 +106,21 @@ namespace WinFormsTest
             OutputComponent.AddItem(myCar);
             OutputComponent.AddItem(pets[1]);
             OutputComponent.AddItem(pets[2]);
+            myList.Add(new List<string>() { "первый" });
+            myList.Add(new List<string>() { "большой", "мелкий1","мелкий2", "мелкий3"});
+            myList.Add(new List<string>() { "второй"});
+            myList.Add(new List<string>() { "третий", "мелкий" });
+            thatlist.Add(new DiagramSeries
+            {
+                Name = "первое",
+                Values = new double[] { 15, 18, 19.5, 23.45, 12, 17.5 }
+            });
+            thatlist.Add(new DiagramSeries
+            {
+                Name = "второе",
+                Values = new double[] { 13, 16, 18.2, 21.72 }
+            });
+
         }
 
         private void buttonCheck_Click(object sender, EventArgs e)
@@ -169,16 +187,9 @@ namespace WinFormsTest
             var fbd = new FolderBrowserDialog();
             if (fbd.ShowDialog() == DialogResult.OK)
             {
-                /*binaryBackUp1.SaveData(fbd.SelectedPath, "myBackUp", pets.ToList());
-                MessageBox.Show("Бекап создан", "Сообщение",
-                MessageBoxButtons.OK, MessageBoxIcon.Information);*/
-                
-                string b = fbd.SelectedPath + "/" + "myBackUp" + ".bin";
-                var myl = Deserialize<List<Pet>>(b);
-                foreach (var el in myl)
-                {
-                    Console.WriteLine(el);
-                }
+                documentWithContext1.CreateFile(fbd.SelectedPath + "/ExcelReport.xls", "Заголовок", new string[] { "раз", "два", "три", "четыре" }.ToList());
+                MessageBox.Show("Отчёт создан", "Сообщение",
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -187,11 +198,10 @@ namespace WinFormsTest
             var fbd = new FolderBrowserDialog();
             if (fbd.ShowDialog() == DialogResult.OK)
             {
-                excelReport1.CreateDoc(fbd.SelectedPath + "/ExcelReport.xlsx", pets.ToList(), new int[] { 1, pets[0].GetType().GetProperties().Count(), 15, 20 }.ToList());
+                documentWithCustomTable2.CreateFile<Pet>(fbd.SelectedPath + "/ExcelReport2.xls", "Заголовок",myList, pets.ToList(), new double?[] { null,null,null,null,45,1,15}.ToList());
                 MessageBox.Show("Отчёт создан", "Сообщение",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -199,7 +209,7 @@ namespace WinFormsTest
             var fbd = new FolderBrowserDialog();
             if (fbd.ShowDialog() == DialogResult.OK)
             {
-                pdfDiagramm1.CreateDiagram(fbd.SelectedPath + "/Diagram.pdf",pets.ToList(),"Name");
+                documentWithDiagram1.CreateFile(fbd.SelectedPath + "/Diagram.xls","Заголовок", "Заголовок диаг",thatlist, Library_NotVisualComponents.DocumentWithDiagram.LegendPosition.Top, _xSeries: new string[] { "Raf","YA", "VSIO","Sdelal"});
                 MessageBox.Show("Отчёт создан", "Сообщение",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
             }

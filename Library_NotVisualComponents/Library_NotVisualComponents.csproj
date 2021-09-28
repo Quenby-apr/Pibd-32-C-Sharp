@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{81D116CB-288C-4B2C-A311-0F12BD69BDA2}</ProjectGuid>
+    <ProjectGuid>{B5FE2277-46B8-4AA4-8607-149D4EEAE4BE}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>Library_VisualComponents</RootNamespace>
-    <AssemblyName>Library_VisualComponents</AssemblyName>
+    <RootNamespace>Library_NotVisualComponents</RootNamespace>
+    <AssemblyName>Library_NotVisualComponents</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -30,12 +30,25 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.13.1.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.13.1\lib\net46\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
+    <Reference Include="Spire.License, Version=1.4.0.40, Culture=neutral, PublicKeyToken=b1144360237c8b3f, processorArchitecture=MSIL">
+      <HintPath>..\packages\FreeSpire.XLS.11.8.6\lib\net40\Spire.License.dll</HintPath>
+    </Reference>
+    <Reference Include="Spire.Pdf, Version=7.8.9.0, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
+      <HintPath>..\packages\FreeSpire.XLS.11.8.6\lib\net40\Spire.Pdf.dll</HintPath>
+    </Reference>
+    <Reference Include="Spire.XLS, Version=11.8.6.0, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
+      <HintPath>..\packages\FreeSpire.XLS.11.8.6\lib\net40\Spire.XLS.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,39 +57,32 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="InputComponent.cs">
-      <SubType>UserControl</SubType>
+    <Compile Include="DocumentWithContext.cs">
+      <SubType>Component</SubType>
     </Compile>
-    <Compile Include="InputComponent.Designer.cs">
-      <DependentUpon>InputComponent.cs</DependentUpon>
+    <Compile Include="DocumentWithContext.Designer.cs">
+      <DependentUpon>DocumentWithContext.cs</DependentUpon>
     </Compile>
-    <Compile Include="OutputComponent.cs">
-      <SubType>UserControl</SubType>
+    <Compile Include="DocumentWithCustomTable.cs">
+      <SubType>Component</SubType>
     </Compile>
-    <Compile Include="OutputComponent.Designer.cs">
-      <DependentUpon>OutputComponent.cs</DependentUpon>
+    <Compile Include="DocumentWithCustomTable.Designer.cs">
+      <DependentUpon>DocumentWithCustomTable.cs</DependentUpon>
     </Compile>
-    <Compile Include="SelectionComponent.cs">
-      <SubType>UserControl</SubType>
+    <Compile Include="DocumentWithDiagram.cs">
+      <SubType>Component</SubType>
     </Compile>
-    <Compile Include="SelectionComponent.Designer.cs">
-      <DependentUpon>SelectionComponent.cs</DependentUpon>
+    <Compile Include="DocumentWithDiagram.Designer.cs">
+      <DependentUpon>DocumentWithDiagram.cs</DependentUpon>
     </Compile>
+    <Compile Include="HelperModels\DiagramSeries.cs" />
+    <Compile Include="HelperModels\ExcelCellParameters.cs" />
+    <Compile Include="HelperModels\ExcelMergeParameters.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="InputComponent.resx">
-      <DependentUpon>InputComponent.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="OutputComponent.resx">
-      <DependentUpon>OutputComponent.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SelectionComponent.resx">
-      <DependentUpon>SelectionComponent.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
