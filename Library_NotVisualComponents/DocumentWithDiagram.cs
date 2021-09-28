@@ -118,9 +118,7 @@ namespace Library_NotVisualComponents
             excel.ActiveChart.Location(XlChartLocation.xlLocationAsObject, "Лист1");
             var excelsheets = book.Worksheets;
             sheet = (Microsoft.Office.Interop.Excel.Worksheet)excelsheets.get_Item(1);
-            sheet.Shapes.Item(1).IncrementLeft(-201);
-            sheet.Shapes.Item(1).IncrementTop((float)20.5);
-            sheet.Shapes.Item(1).Height = 550;
+            sheet.Shapes.Item(1).Height = 450;
             sheet.Shapes.Item(1).Width = 500;
             sheet.Cells[1, 1] = docTitle;
             excel.Application.ActiveWorkbook.SaveAs(path, XlSaveAsAccessMode.xlNoChange);
