@@ -55,20 +55,6 @@ namespace Library_VisualComponents
         {
             return inputLine.Replace(separatingCharacters[0], null).Replace(separatingCharacters[1], null);
         }
-        /*public ArrayList getParams(string layoutLine)
-        {
-            string[] line = layoutLine.Split(',');
-            ArrayList result = new ArrayList();
-            for (int i = 0; i < line.Length; i++)
-            {
-                int start = line[i].IndexOf(separatingCharacters[0]);
-                int end = line[i].IndexOf(separatingCharacters[1]);
-
-                string param = line[i].Substring(start + 1, end - start - 1);
-                result.Add(param);
-            }
-            return result;
-        }*/
         public void AddItem<T>(T obj)
         {
             if (obj != null)
