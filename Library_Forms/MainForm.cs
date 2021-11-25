@@ -150,7 +150,7 @@ namespace Library_Forms
             var fbd = new FolderBrowserDialog();
             if (fbd.ShowDialog() == DialogResult.OK)
             {
-                documentWithContext1.CreateFile(fbd.SelectedPath + FileName + ".xls", "Бесплатные книги", books);
+                documentWithContext1.CreateFile(fbd.SelectedPath + FileName + ".xls", "\n"+"Бесплатные книги"+"\n"+"gfdgdfg", books);
                 MessageBox.Show("Отчёт создан", "Сообщение",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -252,6 +252,20 @@ namespace Library_Forms
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
+        }
+
+        private void телеграммToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = Container.Resolve<FormTelegram>();
+            form.ShowDialog();
+            LoadData();
+        }
+
+        private void excelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = Container.Resolve<FormReport>();
+            form.ShowDialog();
+            LoadData();
         }
     }
 }

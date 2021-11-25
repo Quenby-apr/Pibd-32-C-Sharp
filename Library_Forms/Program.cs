@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Library_BusinessLogic.BusinessLogic;
 using Library_BusinessLogic.Interfaces;
+using Library_BusinessLogic.PluginLogic.Managers;
 using LibraryDatabase.Implements;
 using Unity;
 using Unity.Lifetime;
@@ -31,6 +32,8 @@ namespace Library_Forms
             currentContainer.RegisterType<IGenreStorage, GenreStorage>(new HierarchicalLifetimeManager());
             currentContainer.RegisterType<BookLogic>(new HierarchicalLifetimeManager());
             currentContainer.RegisterType<GenreLogic>(new HierarchicalLifetimeManager());
+            currentContainer.RegisterType<TelegramPluginManager>(new HierarchicalLifetimeManager());
+            currentContainer.RegisterType<ExcelPluginManager>(new HierarchicalLifetimeManager());
             return currentContainer;
         }
     }

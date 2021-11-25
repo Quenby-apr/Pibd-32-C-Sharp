@@ -143,8 +143,9 @@
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.10.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="NonVisualComponentsLibrary">
-      <HintPath>..\LinaLibrary\NonVisualComponentsLibrary.dll</HintPath>
+    <Reference Include="NonVisualComponentsLibrary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\LinaLibraryFix\NonVisualComponentsLibrary.dll</HintPath>
     </Reference>
     <Reference Include="PdfSharp, Version=1.50.5147.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
       <HintPath>..\packages\PDFsharp-MigraDoc.1.50.5147\lib\net20\PdfSharp.dll</HintPath>
@@ -335,6 +336,12 @@
       <Private>True</Private>
       <Private>True</Private>
     </Reference>
+    <Reference Include="TeleSharp.TL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\TLSharp.0.1.0.574\lib\net46\TeleSharp.TL.dll</HintPath>
+    </Reference>
+    <Reference Include="TLSharp.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\TLSharp.0.1.0.574\lib\net46\TLSharp.Core.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Abstractions, Version=5.11.7.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
       <HintPath>..\packages\Unity.5.11.10\lib\net47\Unity.Abstractions.dll</HintPath>
     </Reference>
@@ -365,11 +372,29 @@
     <Compile Include="FormChooseGenre.Designer.cs">
       <DependentUpon>FormChooseGenre.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormHashTelegram.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHashTelegram.Designer.cs">
+      <DependentUpon>FormHashTelegram.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormPath.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormPath.Designer.cs">
       <DependentUpon>FormPath.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormReport.Designer.cs">
+      <DependentUpon>FormReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTelegram.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTelegram.Designer.cs">
+      <DependentUpon>FormTelegram.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -385,8 +410,17 @@
     <EmbeddedResource Include="FormChooseGenre.resx">
       <DependentUpon>FormChooseGenre.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormHashTelegram.resx">
+      <DependentUpon>FormHashTelegram.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormPath.resx">
       <DependentUpon>FormPath.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormReport.resx">
+      <DependentUpon>FormReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTelegram.resx">
+      <DependentUpon>FormTelegram.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

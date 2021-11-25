@@ -48,6 +48,9 @@
             this.outputUserControl1 = new VisualComponentsLibrary.OutputUserControl();
             this.componentWordMultyTable1 = new WindowsFormsComponentLibrary.ComponentWordMultyTable(this.components);
             this.chartComponent1 = new NonVisualComponentsLibrary.ChartComponent(this.components);
+            this.плагиныToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.телеграммToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.excelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -85,9 +88,10 @@
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.записьToolStripMenuItem,
-            this.документToolStripMenuItem});
+            this.документToolStripMenuItem,
+            this.плагиныToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(129, 48);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 92);
             // 
             // записьToolStripMenuItem
             // 
@@ -96,7 +100,7 @@
             this.редактироватьToolStripMenuItem,
             this.удалитьToolStripMenuItem});
             this.записьToolStripMenuItem.Name = "записьToolStripMenuItem";
-            this.записьToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.записьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.записьToolStripMenuItem.Text = "Запись";
             // 
             // создатьToolStripMenuItem
@@ -127,7 +131,7 @@
             this.создатьСТаблицейToolStripMenuItem,
             this.создатьСДиаграммойToolStripMenuItem});
             this.документToolStripMenuItem.Name = "документToolStripMenuItem";
-            this.документToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.документToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.документToolStripMenuItem.Text = "Документ";
             // 
             // создатьПростойToolStripMenuItem
@@ -163,6 +167,29 @@
             // chartComponent1
             // 
             this.chartComponent1.ErrorMessage = null;
+            // 
+            // плагиныToolStripMenuItem
+            // 
+            this.плагиныToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.телеграммToolStripMenuItem,
+            this.excelToolStripMenuItem});
+            this.плагиныToolStripMenuItem.Name = "плагиныToolStripMenuItem";
+            this.плагиныToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.плагиныToolStripMenuItem.Text = "Плагины";
+            // 
+            // телеграммToolStripMenuItem
+            // 
+            this.телеграммToolStripMenuItem.Name = "телеграммToolStripMenuItem";
+            this.телеграммToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.телеграммToolStripMenuItem.Text = "Телеграм";
+            this.телеграммToolStripMenuItem.Click += new System.EventHandler(this.телеграммToolStripMenuItem_Click);
+            // 
+            // excelToolStripMenuItem
+            // 
+            this.excelToolStripMenuItem.Name = "excelToolStripMenuItem";
+            this.excelToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.excelToolStripMenuItem.Text = "Excel";
+            this.excelToolStripMenuItem.Click += new System.EventHandler(this.excelToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -201,5 +228,8 @@
         private VisualComponentsLibrary.OutputUserControl outputUserControl1;
         private WindowsFormsComponentLibrary.ComponentWordMultyTable componentWordMultyTable1;
         private NonVisualComponentsLibrary.ChartComponent chartComponent1;
+        private System.Windows.Forms.ToolStripMenuItem плагиныToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem телеграммToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem excelToolStripMenuItem;
     }
 }

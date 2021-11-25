@@ -13,9 +13,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library_NotVisualComponents
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library_Forms", "Library_Forms\Library_Forms.csproj", "{09FD31A7-593B-446E-833F-629376903DA3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryDatabase", "LibraryDatabase\LibraryDatabase.csproj", "{BEA6E4BB-51A3-48C2-91DD-522E62E9958E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibraryDatabase", "LibraryDatabase\LibraryDatabase.csproj", "{BEA6E4BB-51A3-48C2-91DD-522E62E9958E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library_BusinessLogic", "Library_BusinessLogic\Library_BusinessLogic.csproj", "{69D950D5-CA67-478C-B4C9-E6F6F767EECF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Library_BusinessLogic", "Library_BusinessLogic\Library_BusinessLogic.csproj", "{69D950D5-CA67-478C-B4C9-E6F6F767EECF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelegramPlugin", "TelegramPlugin\TelegramPlugin.csproj", "{E8552BB6-7097-454C-B1D1-5FC508C4B259}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcelPlugin", "ExcelPlugin\ExcelPlugin.csproj", "{3DC6EAA0-3B96-4E39-8BC6-64560AC6D03A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +55,14 @@ Global
 		{69D950D5-CA67-478C-B4C9-E6F6F767EECF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{69D950D5-CA67-478C-B4C9-E6F6F767EECF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{69D950D5-CA67-478C-B4C9-E6F6F767EECF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8552BB6-7097-454C-B1D1-5FC508C4B259}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8552BB6-7097-454C-B1D1-5FC508C4B259}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8552BB6-7097-454C-B1D1-5FC508C4B259}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8552BB6-7097-454C-B1D1-5FC508C4B259}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DC6EAA0-3B96-4E39-8BC6-64560AC6D03A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DC6EAA0-3B96-4E39-8BC6-64560AC6D03A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DC6EAA0-3B96-4E39-8BC6-64560AC6D03A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DC6EAA0-3B96-4E39-8BC6-64560AC6D03A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
