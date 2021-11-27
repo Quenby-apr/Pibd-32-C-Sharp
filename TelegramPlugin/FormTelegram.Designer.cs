@@ -1,4 +1,4 @@
-﻿namespace Library_Forms
+﻿namespace TelegramPlugin
 {
     partial class FormTelegram
     {
@@ -28,46 +28,56 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBoxPhone = new System.Windows.Forms.TextBox();
             this.buttonAuth = new System.Windows.Forms.Button();
-            this.buttonSend = new System.Windows.Forms.Button();
             this.SuspendLayout();
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(13, 13);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(163, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Номер телефона отправителя:";
+            // 
+            // textBoxPhone
+            // 
+            this.textBoxPhone.Location = new System.Drawing.Point(196, 10);
+            this.textBoxPhone.Name = "textBoxPhone";
+            this.textBoxPhone.Size = new System.Drawing.Size(172, 20);
+            this.textBoxPhone.TabIndex = 1;
             // 
             // buttonAuth
             // 
-            this.buttonAuth.Location = new System.Drawing.Point(58, 41);
+            this.buttonAuth.Location = new System.Drawing.Point(424, 10);
             this.buttonAuth.Name = "buttonAuth";
-            this.buttonAuth.Size = new System.Drawing.Size(152, 54);
-            this.buttonAuth.TabIndex = 0;
+            this.buttonAuth.Size = new System.Drawing.Size(139, 23);
+            this.buttonAuth.TabIndex = 7;
             this.buttonAuth.Text = "Авторизоваться";
             this.buttonAuth.UseVisualStyleBackColor = true;
             this.buttonAuth.Click += new System.EventHandler(this.buttonAuth_Click);
-            // 
-            // buttonSend
-            // 
-            this.buttonSend.Location = new System.Drawing.Point(301, 41);
-            this.buttonSend.Name = "buttonSend";
-            this.buttonSend.Size = new System.Drawing.Size(175, 54);
-            this.buttonSend.TabIndex = 1;
-            this.buttonSend.Text = "Отправить сообщение";
-            this.buttonSend.UseVisualStyleBackColor = true;
-            this.buttonSend.Click += new System.EventHandler(this.buttonSend_Click);
             // 
             // FormTelegram
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(544, 128);
-            this.Controls.Add(this.buttonSend);
+            this.ClientSize = new System.Drawing.Size(743, 50);
             this.Controls.Add(this.buttonAuth);
+            this.Controls.Add(this.textBoxPhone);
+            this.Controls.Add(this.label1);
             this.Name = "FormTelegram";
-            this.Text = "Телеграмм";
+            this.Text = "Телеграмм ";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBoxPhone;
         private System.Windows.Forms.Button buttonAuth;
-        private System.Windows.Forms.Button buttonSend;
     }
 }

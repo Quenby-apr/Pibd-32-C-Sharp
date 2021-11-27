@@ -7,23 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Unity;
 
-namespace Library_Forms
+namespace TelegramPlugin
 {
-    public partial class FormHashTelegram : Form
+    public partial class FormCode : Form
     {
-        [Dependency]
-        public new IUnityContainer Container { get; set; }
-        public string Hash { get; set; }
-        public FormHashTelegram()
+        public string Code { get; set; }
+        public FormCode()
         {
             InitializeComponent();
         }
-
         private void buttonSend_Click(object sender, EventArgs e)
         {
-            Hash = textBoxHash.Text;
+            Code = textBoxHash.Text;
             DialogResult = DialogResult.OK;
         }
     }

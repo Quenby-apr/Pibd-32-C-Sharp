@@ -372,12 +372,6 @@
     <Compile Include="FormChooseGenre.Designer.cs">
       <DependentUpon>FormChooseGenre.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormHashTelegram.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormHashTelegram.Designer.cs">
-      <DependentUpon>FormHashTelegram.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormPath.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -409,9 +403,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormChooseGenre.resx">
       <DependentUpon>FormChooseGenre.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormHashTelegram.resx">
-      <DependentUpon>FormHashTelegram.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormPath.resx">
       <DependentUpon>FormPath.cs</DependentUpon>

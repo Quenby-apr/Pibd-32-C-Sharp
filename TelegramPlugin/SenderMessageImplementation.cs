@@ -9,6 +9,7 @@ using Library_BusinessLogic.PluginLogic.Interfaces;
 using System.Threading.Tasks;
 using TeleSharp.TL;
 using TLSharp.Core;
+using System.Windows.Forms;
 
 namespace TelegramPlugin
 {
@@ -22,39 +23,42 @@ namespace TelegramPlugin
         private string hash;
         public async Task Connect(SenderConfiguratorModel config)
         {
-            if (config.ApiHash == null || config.PhoneNumber == null)
+            var form = new FormTelegram(config);
+            form.ShowDialog();
+            if (form.DialogResult == DialogResult.OK)
             {
-                return;
+                string path = Directory.GetCurrentDirectory();
+                path += @"\session.dat";
+                if (File.Exists(path)) File.Delete(path);
+
+                client = new TelegramClient(config.ApiId, config.ApiHash);
+                await client.ConnectAsync();
+                hash = await client.SendCodeRequestAsync(config.PhoneNumber);
+                var formCode = new FormCode();
+                formCode.ShowDialog();
+                if (form.DialogResult == DialogResult.OK)
+                {
+                    await client.MakeAuthAsync(config.PhoneNumber, hash, formCode.Code);
+                    userContacts = await client.GetContactsAsync();
+                }
             }
-            string path = Directory.GetCurrentDirectory();
-            path += @"\session.dat";
-            if (File.Exists(path)) File.Delete(path);
-
-            client = new TelegramClient(config.ApiId, config.ApiHash);
-            await client.ConnectAsync();
-            hash = await client.SendCodeRequestAsync(config.PhoneNumber);
-
-        }
-        public async Task<TeleSharp.TL.Contacts.TLContacts> GetContacts()
-        {
-            return await client.GetContactsAsync();
         }
 
-        public async Task MakeAuthAsync(SenderConfiguratorModel config, string _code)
+        public async Task SendMessage()
         {
-            if (_code == null || config.PhoneNumber == null)
+            await client.GetContactsAsync();
+            var form = new FormMessage(client, userContacts);
+            form.ShowDialog();
+            if (form.DialogResult == DialogResult.OK)
             {
-                return;
+                var message = form.Model;
+                if (message.Text == null)
+                {
+                    return;
+                }
+                await client.SendMessageAsync(new TLInputPeerUser() { UserId = message.TargetUserId }, message.Text);
             }
-            await client.MakeAuthAsync(config.PhoneNumber, hash, _code);
-        }
-        public async Task SendMessage(SendMessageModel message)
-        {
-            if (message.Text == null)
-            {
-                return;
-            }
-            await client.SendMessageAsync(new TLInputPeerUser() { UserId = message.TargetUserId }, message.Text);
+            
         }
     }
 }

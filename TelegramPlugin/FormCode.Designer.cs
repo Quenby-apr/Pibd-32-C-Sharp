@@ -1,6 +1,6 @@
-﻿namespace Library_Forms
+﻿namespace TelegramPlugin
 {
-    partial class FormHashTelegram
+    partial class FormCode
     {
         /// <summary>
         /// Required designer variable.
@@ -67,7 +67,7 @@
             this.Controls.Add(this.buttonSend);
             this.Controls.Add(this.textBoxHash);
             this.Controls.Add(this.label);
-            this.Name = "FormHashTelegram";
+            this.Name = "FormCode";
             this.Text = "Форма заполнения хеша";
             this.ResumeLayout(false);
             this.PerformLayout();

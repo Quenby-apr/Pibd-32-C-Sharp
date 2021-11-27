@@ -10,8 +10,6 @@ namespace Library_BusinessLogic.PluginLogic.Interfaces
     {
         string PluginType { get; }
         Task Connect(SenderConfiguratorModel config);
-        Task SendMessage(SendMessageModel message);
-        Task MakeAuthAsync(SenderConfiguratorModel config, string _code);
-        Task<TeleSharp.TL.Contacts.TLContacts> GetContacts();
+        Task SendMessage();
     }
 }
